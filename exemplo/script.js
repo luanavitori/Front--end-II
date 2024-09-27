@@ -16,9 +16,7 @@ ancora.style.fontWeight = 'bold';
 body.appendChild(ancora);
 
 
-/*
-const body = document.createElement('body');
-*/
+
 const list = document.createElement('ul');
 const item1 = document.createElement('li');
 const item2 = document.createElement('li');
