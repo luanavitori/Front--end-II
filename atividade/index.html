@@ -8,18 +8,40 @@
         * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        
+        header {
+            background-color: #071D41;
+            font-family: Arial, sans-serif;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40px;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            text-transform: uppercase;
         }
     </style>
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="inicio.html"></a>Início</li>
-                <li><a href="sobre.html"></a>Sobre</li>
-                <li><a href="contato.html"></a>Contato</li>
-            </ul>
-        </nav>
+        <header>
+            <nav>
+                <ul id="menu">
+                </ul>
+            </nav>
+        </header>
+    
     </header>
     <script src="estrut.js"></script>
 </body>
