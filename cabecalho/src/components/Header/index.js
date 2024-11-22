@@ -13,7 +13,7 @@ export default function Header() {
                 showMenu &&
 
                 <nav>
-                    <ul className={styles.header}>
+                    <ul className={styles.li}>
                         <li><Link href='/'>Home</Link></li>
                         <li><Link href='/sobre'>Sobre</Link></li>
                         <li><Link href='/contato'>Contato</Link></li>

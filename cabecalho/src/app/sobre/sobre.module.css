@@ -1,8 +1,15 @@
-.paragrafo {
-    background-color: #2175d4;
+.ti{
+    height: 50px;
+    color: rgb(194, 164, 34);
 }
 
-#paragrafoUnico {
-    background-color: rgb(131, 81, 212);
+.paragrafo {
+    color: black;
+}
 
+.imagem{
+    border-radius: 20px;
+    display: block;
+    margin: auto;
+   
 }

@@ -7,15 +7,14 @@ export default function Home() {
   const nome = 'Luana'
   return (
     <div>
-      <h1>Página Principal</h1>
-      <p>Parágrafo da página principal</p>
-      <p>Autor: {nome}</p>
+      <h1 className={styles.h1}>Bem Vindo ao Ratatouille</h1>
       <Image 
       className={styles.imagem} 
-      src="/images/rott.jpg" 
-      alt="Imagem de um Rottweiler" 
+      src="/images/Rata.jpg" 
+      alt="Imagem do Filme" 
       width={600} 
       height={400} />
+      <p>Autor: {nome}</p>
     </div>
   );
 }

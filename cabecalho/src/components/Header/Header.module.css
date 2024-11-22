@@ -1,7 +1,13 @@
-.header{
-    background-color: blueviolet;
-    text-align: center;
+.li{
+    display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    list-style-type: none;
+    background-color: rgb(194, 164, 34);
+    border-radius: 5px;
+    height: 40px;
+
 }
-  
   

@@ -2,11 +2,10 @@ import styles from "./sobre.module.css";
 
 export default function Sobre() {
     return (
-        <main>
-            <h1>Sobre</h1>
-            <p className={styles.paragrafo}>Minha Segunda Página</p>
-            <p id = {styles.paragrafoUnico}>Meu parágrafo especial</p>
-        </main>
+        <div>
+            <h1 className={styles.ti}>Ratatouille</h1>
+            <p className={styles.paragrafo}>Ratatouille é um filme estadunidense do gênero animação, sendo o oitavo longa-metragem do gênero produzido pela Pixar e lançado em 2007. Conta a história de Remy, um rato vivendo em Paris que sonha em se tornar um chef de cozinha. O filme foi dirigido por Brad Bird, que assumiu depois de Jan Pinkava em 2005, foi lançado nos EUA em 29 de junho de 2007 e foi lançado no Brasil em 6 de julho do mesmo ano.</p>
+        </div>
     )
 }
 
