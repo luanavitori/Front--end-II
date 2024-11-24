@@ -1,10 +1,30 @@
-.h1{
+.h1 {
     color: rgb(194, 164, 34);
-}
-
-.imagem{
+    font-size: 24px;
+    text-align: center;
+  }
+  
+  .imagem {
     border-radius: 20px;
     display: block;
     margin: auto;
-   
+    max-width: 100%;
+    height: auto;
   }
+  
+  @media (max-width: 768px) {
+    .h1 {
+      font-size: 20px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .h1 {
+      font-size: 18px;
+    }
+    
+    .imagem {
+      border-radius: 15px;
+    }
+  }
+  

@@ -14,8 +14,8 @@ export default function Header() {
                 <Image className={styles.rat}
                     src="/Menu.png"
                     alt="Ícone do menu"
-                    width={40}
-                    height={40}
+                    width={30}
+                    height={30}
 
                 />
             </button>
