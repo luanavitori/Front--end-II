@@ -1,14 +1,22 @@
-.ti{
+.ti {
     color: rgb(194, 164, 34);
-}
-
-.paragrafo {
+    font-size: 24px;
+    text-align: center;
+  }
+  
+  .paragrafo {
     color: black;
-    height: 110px;
-}
-
-.imagem{
+    height: auto;
+    margin-top: 20px; 
+    font-size: 16px;
+    text-align: justify; 
+  }
+  
+  .imagem {
     border-radius: 20px;
     display: block;
-    margin: auto;  
-}
+    margin: 20px auto; 
+    max-width: 100%; 
+    height: auto; 
+  }
+  
