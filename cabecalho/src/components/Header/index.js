@@ -12,7 +12,7 @@ export default function Header() {
         <header>
             <button onClick={() => setShowMenu(!showMenu)}>
                 <Image className={styles.rat}
-                    src="/menu.png"
+                    src="/Menu.png"
                     alt="Ícone do menu"
                     width={40}
                     height={40}
