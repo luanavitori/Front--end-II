@@ -1,3 +1,10 @@
-.cont{
+.h1{
     color: rgb(194, 164, 34);
 }
+
+.imagem{
+    border-radius: 20px;
+    display: block;
+    margin: auto;
+   
+  }

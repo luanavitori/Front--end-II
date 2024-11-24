@@ -5,11 +5,11 @@
 
 .paragrafo {
     color: black;
+    height: 110px;
 }
 
 .imagem{
     border-radius: 20px;
     display: block;
-    margin: auto;
-   
+    margin: auto;  
 }

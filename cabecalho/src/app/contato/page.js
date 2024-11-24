@@ -1,11 +1,23 @@
 import styles from "./contato.module.css";
+import Image from "next/image";
+
 
 export default function Contato() {
-    return (
-        <main>
-            <h1 className={styles.cont}>Contato</h1>
-            <p className={styles.paragrafo}>Minha Terceira Página</p>
-            <p id = {styles.paragrafoUnico}>Meu parágrafo especial</p>
-        </main>
-    )
+  return (
+    <div>
+      <h1 className={styles.h1}>Contato</h1>
+      <Image
+            className={styles.imagem}
+            src="/image/Rato.jpg"
+            alt="Imagem do Filme"
+            width={400}
+            height={400}/>
+    
+    </div>
+  );
 }
+
+
+
+
+

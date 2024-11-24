@@ -10,7 +10,7 @@ export default function Home() {
       <h1 className={styles.h1}>Bem Vindo ao Ratatouille</h1>
       <Image 
       className={styles.imagem} 
-      src="/images/Rata.jpg" 
+      src="/image/Rata.jpg" 
       alt="Imagem do Filme" 
       width={600} 
       height={400} />
