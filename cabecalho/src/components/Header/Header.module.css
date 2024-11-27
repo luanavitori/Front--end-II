@@ -36,4 +36,11 @@
 
 
 }
+
+@media screen and (max-width: 600px) {
+  .li {
+    background-color: #775b0f;
+  }
+}
+
   
