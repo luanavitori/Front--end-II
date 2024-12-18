@@ -19,6 +19,8 @@ export default function Header() {
                         <li><Link href='/contato'>Contato</Link></li>
                         <li><Link href='/listas'>Listas</Link></li>
                         <li><Link href='/props'>Props</Link></li>
+                        <li><Link href='/filter'>Filtros</Link></li>
+                        <li><Link href='/efeitos'>Efeitos</Link></li>
                     </ul>
                 </nav>
             }
