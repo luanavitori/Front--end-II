@@ -17,7 +17,21 @@
     margin-top: 5px;
 }
 
-.med {
-    font-size: 18px;
-    color: black;  
+
+
+.Header_li {
+    margin-right: 10px;
+    position: relative;
+    list-style: none;
+    min-width: max-content;
+}
+
+.subm {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    color: #fff;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, .2);
+    z-index: 1;
 }
