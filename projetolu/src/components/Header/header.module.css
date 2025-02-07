@@ -6,8 +6,8 @@
     gap: 12px;
     list-style-type: none;
     background-color: rgb(124, 22, 22);
-    border-radius: 5px;
-    height: 65px;
+    border-radius: 10px;
+    height: 70px;
     color: #fff;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 20px;
@@ -15,16 +15,10 @@
 
 .hom {
     margin-top: 5px;
+    
 }
 
 
-
-.Header_li {
-    margin-right: 10px;
-    position: relative;
-    list-style: none;
-    min-width: max-content;
-}
 
 .subm {
     display: none;
