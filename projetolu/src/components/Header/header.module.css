@@ -1,31 +1,104 @@
-.li {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    list-style-type: none;
+.header {
     background-color: rgb(124, 22, 22);
-    border-radius: 10px;
-    height: 70px;
-    color: #fff;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 20px;
-}
-
-.hom {
-    margin-top: 5px;
-    
+    padding: 15px 0;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 
+.nav {
+    display: flex;
+    justify-content: center;
+}
 
-.subm {
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+
+.item {
+    position: relative;
+}
+
+/* Links principais */
+.link {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: 0.3s;
+    display: block;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* Efeito ao passar o mouse */
+.link:hover {
+    background-color: rgb(255, 255, 255);
+    color: rgb(124, 22, 22);
+    border-radius: 8px;
+}
+
+/* Submenu */
+.submenu {
     display: none;
     position: absolute;
-    background-color: #333;
-    color: #fff;
-    min-width: 160px;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, .2);
-    z-index: 1;
+    background-color: rgb(124, 22, 22);
+    top: 100%;
+    left: 0;
+    width: 150px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgb(255, 255, 255);
+    flex-direction: column;
+    padding: 10px 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* Mostrar submenu ao passar o mouse */
+.item:hover .submenu {
+    display: flex;
+}
+
+/* Itens do submenu */
+.submenuItem {
+    padding: 8px 15px;
+    font-size: 14px;
+    display: block;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* Hover dos itens do submenu */
+.submenuItem:hover {
+    background-color: rgb(255, 255, 255);
+    color: rgb(124, 22, 22);
+    border-radius: 8px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .item {
+        width: 100%;
+        text-align: center;
+    }
+
+    .submenu {
+        width: 100%;
+        position: relative;
+        text-align: left;
+    }
 }
