@@ -18,11 +18,12 @@
 }
 
 
+
 .item {
     position: relative;
 }
 
-/* Links principais */
+
 .link {
     text-decoration: none;
     color: white;
@@ -34,14 +35,14 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-/* Efeito ao passar o mouse */
+
 .link:hover {
     background-color: rgb(255, 255, 255);
     color: rgb(124, 22, 22);
     border-radius: 8px;
 }
 
-/* Submenu */
+
 .submenu {
     display: none;
     position: absolute;
@@ -56,12 +57,12 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-/* Mostrar submenu ao passar o mouse */
+
 .item:hover .submenu {
     display: flex;
 }
 
-/* Itens do submenu */
+
 .submenuItem {
     padding: 8px 15px;
     font-size: 14px;
@@ -71,14 +72,14 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-/* Hover dos itens do submenu */
+
 .submenuItem:hover {
     background-color: rgb(255, 255, 255);
     color: rgb(124, 22, 22);
     border-radius: 8px;
 }
 
-/* Responsividade */
+
 @media (max-width: 768px) {
     .nav {
         flex-direction: column;
@@ -102,3 +103,10 @@
         text-align: left;
     }
 }
+
+@media screen and (max-width: 600px) {
+    .header {
+      background-color: #351d1d;
+    }
+  }
+  
