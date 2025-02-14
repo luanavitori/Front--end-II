@@ -23,7 +23,7 @@ export default function Header() {
             <li className={styles.item}>
                 <a href="/medico" className={styles.link}>Médico</a>
                 <ul className={styles.submenu}>
-                    <li><a href="/medico" className={styles.submenuItem}>Listar</a></li>
+                    <li><a href="/medico/listar" className={styles.submenuItem}>Listar</a></li>
                     <li><a href="#" className={styles.submenuItem}>Adicionar</a></li>
                     <li><a href="#" className={styles.submenuItem}>Editar</a></li>
                     <li><a href="#" className={styles.submenuItem}>Excluir</a></li>
@@ -32,7 +32,7 @@ export default function Header() {
             <li className={styles.item}>
                 <a href="#" className={styles.link}>Paciente</a>
                 <ul className={styles.submenu}>
-                    <li><a href="#" className={styles.submenuItem}>Listar</a></li>
+                    <li><a href="/paciente/listar" className={styles.submenuItem}>Listar</a></li>
                     <li><a href="#" className={styles.submenuItem}>Adicionar</a></li>
                     <li><a href="#" className={styles.submenuItem}>Editar</a></li>
                     <li><a href="#" className={styles.submenuItem}>Excluir</a></li>
@@ -41,7 +41,7 @@ export default function Header() {
             <li className={styles.item}>
                 <a href="#" className={styles.link}>Consulta</a>
                 <ul className={styles.submenu}>
-                    <li><a href="#" className={styles.submenuItem}>Listar Consultas</a></li>
+                    <li><a href="/consulta/listar" className={styles.submenuItem}>Listar Consultas</a></li>
                     <li><a href="#" className={styles.submenuItem}>Agendar</a></li>
                     <li><a href="#" className={styles.submenuItem}>Reagendar</a></li>
                     <li><a href="#" className={styles.submenuItem}>Cancelar</a></li>
