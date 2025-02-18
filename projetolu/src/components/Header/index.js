@@ -36,7 +36,7 @@ export default function Header() {
                 <a href="#" className={styles.link}>Consulta</a>
                 <ul className={styles.submenu}>
                     <li><a href="/consulta/listar" className={styles.submenuItem}>Listar Consultas</a></li>
-                    <li><a href="#" className={styles.submenuItem}>Agendar</a></li>
+                    <li><a href="/consulta/agendar" className={styles.submenuItem}>Agendar</a></li>
                     <li><a href="#" className={styles.submenuItem}>Reagendar</a></li>
                     <li><a href="#" className={styles.submenuItem}>Cancelar</a></li>
                 </ul>

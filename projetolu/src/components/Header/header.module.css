@@ -44,6 +44,7 @@
 
 
 .submenu {
+    list-style: none;
     display: none;
     position: absolute;
     background-color: rgb(124, 22, 22);
@@ -56,6 +57,7 @@
     padding: 10px 0;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
 
 
 .item:hover .submenu {

@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { useState, useEffect } from "react";
 
 export default function ListarMedicos() {
@@ -20,7 +20,7 @@ export default function ListarMedicos() {
   const handleSearch = (e) => {
     const valorBusca = e.target.value;
     setBusca(valorBusca);
-    
+
     const filtrados = medicos.filter((medico) =>
       medico.nome.toLowerCase().includes(valorBusca.toLowerCase())
     );
@@ -28,10 +28,11 @@ export default function ListarMedicos() {
   };
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h1 style={{ textAlign: "center", color:"rgb(124, 22, 22)"}}>Lista de Médicos</h1>
+    <div style={{ padding: "20px", maxWidth: "1200px", margin: "0 auto" }}>
+      <h1 style={{ textAlign: "center", color: "rgb(124, 22, 22)" }}>
+        Lista de Médicos
+      </h1>
 
-      
       <div style={{ display: "flex", justifyContent: "center", marginTop: "20px" }}>
         <input
           type="text"
@@ -39,9 +40,10 @@ export default function ListarMedicos() {
           value={busca}
           onChange={handleSearch}
           style={{
-            width: "50%",  
-            height: "40px", 
-            fontSize: "18px", 
+            width: "100%",
+            maxWidth: "500px",
+            height: "40px",
+            fontSize: "16px",
             padding: "10px",
             borderRadius: "8px",
             border: "1px solid #ccc",
@@ -50,28 +52,48 @@ export default function ListarMedicos() {
         />
       </div>
 
-      <table border="1" width="100%" style={{ borderCollapse: "collapse", marginTop: "20px" }}>
-        <thead>
-          <tr style={{ backgroundColor: "rgb(124, 22, 22)", color:"white" }}>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Telefone</th>
-            <th>Email</th>
-            <th>Especialidade</th>
-          </tr>
-        </thead>
-        <tbody>
-          {medicosFiltrados.map((medico) => (
-            <tr key={medico.id}>
-              <td>{medico.id}</td>
-              <td>{medico.nome}</td>
-              <td>{medico.telefone}</td>
-              <td>{medico.email}</td>
-              <td>{medico.especialidade}</td>
+      <div style={{ overflowX: "auto", marginTop: "20px" }}>
+        <table
+          style={{
+            width: "100%",
+            borderCollapse: "collapse",
+            minWidth: "600px",
+          }}
+        >
+          <thead>
+            <tr style={{ backgroundColor: "rgb(124, 22, 22)", color: "white" }}>
+              <th style={styles.th}>ID</th>
+              <th style={styles.th}>Nome</th>
+              <th style={styles.th}>Telefone</th>
+              <th style={styles.th}>Email</th>
+              <th style={styles.th}>Especialidade</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {medicosFiltrados.map((medico) => (
+              <tr key={medico.id}>
+                <td style={styles.td}>{medico.id}</td>
+                <td style={styles.td}>{medico.nome}</td>
+                <td style={styles.td}>{medico.telefone}</td>
+                <td style={styles.td}>{medico.email}</td>
+                <td style={styles.td}>{medico.especialidade}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
+
+const styles = {
+  th: {
+    padding: "12px",
+    textAlign: "left",
+  },
+  td: {
+    padding: "10px",
+    borderBottom: "1px solid #ddd",
+  },
+};
+
