@@ -1,56 +1,60 @@
-'use client';
-import { useState } from "react";
+"use client";
+import { useState, useEffect } from "react";
 
-export default function AgendarConsulta() {
-  const [nomePaciente, setNomePaciente] = useState("");
-  const [nomeMedico, setNomeMedico] = useState("");
-  const [especialidade, setEspecialidade] = useState("");
-  const [tipoConsulta, setTipoConsulta] = useState("");
-  const [mensagem, setMensagem] = useState("");
+export default function CadastroConsulta() {
+  const [pacientes, setPacientes] = useState([]);
+  const [medicos, setMedicos] = useState([]);
+  const [formData, setFormData] = useState({
+    paciente: "",
+    medico: "",
+    especialidade: "",
+    data: "",
+    horario: "",
+    tipo: ""
+  });
+  const [confirmado, setConfirmado] = useState(false);
 
-  const agendarConsulta = async (e) => {
-    e.preventDefault();
+  useEffect(() => {
+    fetch("https://api-clinica-2a.onrender.com/pacientes")
+      .then(response => response.ok ? response.json() : [])
+      .then(data => setPacientes(Array.isArray(data) ? data : [data]));
+  }, []);
+
+  useEffect(() => {
+    fetch("https://api-clinica-2a.onrender.com/medicos")
+      .then(response => response.ok ? response.json() : [])
+      .then(data => setMedicos(Array.isArray(data) ? data : [data]));
+  }, []);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    let updatedFormData = { ...formData, [name]: value };
     
-    const novaConsulta = {
-      paciente: nomePaciente,
-      medico: nomeMedico,
-      especialidade: especialidade,
-      tipo: tipoConsulta,
-    };
-
-    try {
-      const response = await fetch("https://api-clinica-2a.onrender.com/consultas", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(novaConsulta),
-      });
-
-      if (response.ok) {
-        setMensagem("Consulta agendada com sucesso!");
-        setNomePaciente("");
-        setNomeMedico("");
-        setEspecialidade("");
-        setTipoConsulta("");
-      } else {
-        setMensagem("Erro ao agendar consulta. Tente novamente.");
-      }
-    } catch (error) {
-      console.error("Erro ao agendar consulta:", error);
-      setMensagem("Erro ao agendar consulta. Tente novamente.");
+    if (name === "medico") {
+      const selectedMedico = medicos.find(medico => medico.id === Number(value));
+      updatedFormData.especialidade = selectedMedico ? selectedMedico.especialidade : "";
     }
+    
+    setFormData(updatedFormData);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setConfirmado(true);
   };
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h1 style={{ textAlign: "center", color: "rgb(124, 22, 22)" }}>Agendar Consulta</h1>
-      <form onSubmit={agendarConsulta} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "15px", marginTop: "20px" }}>
-        <input
-          type="text"
-          placeholder="Nome do Paciente"
-          value={nomePaciente}
-          onChange={(e) => setNomePaciente(e.target.value)}
+    <div style={{ padding: "20px", maxWidth: "1200px", margin: "0 auto" }}>
+      <h1 style={{ textAlign: "center", color: "rgb(124, 22, 22)" }}>Cadastro de Consulta</h1>
+      <form
+        onSubmit={handleSubmit}
+        style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "15px", marginTop: "20px" }}
+      >
+        <select
+          name="paciente"
+          value={formData.paciente}
+          onChange={handleChange}
+          required
           style={{
             width: "50%",
             height: "40px",
@@ -60,13 +64,18 @@ export default function AgendarConsulta() {
             border: "1px solid #ccc",
             outline: "none",
           }}
+        >
+          <option value="">Selecione um Paciente</option>
+          {pacientes.map(paciente => (
+            <option key={paciente.id} value={paciente.id}>{paciente.nome}</option>
+          ))}
+        </select>
+
+        <select
+          name="medico"
+          value={formData.medico}
+          onChange={handleChange}
           required
-        />
-        <input
-          type="text"
-          placeholder="Nome do Médico"
-          value={nomeMedico}
-          onChange={(e) => setNomeMedico(e.target.value)}
           style={{
             width: "50%",
             height: "40px",
@@ -76,13 +85,19 @@ export default function AgendarConsulta() {
             border: "1px solid #ccc",
             outline: "none",
           }}
-          required
-        />
+        >
+          <option value="">Selecione um Médico</option>
+          {medicos.map(medico => (
+            <option key={medico.id} value={medico.id}>{medico.nome}</option>
+          ))}
+        </select>
+
         <input
           type="text"
+          name="especialidade"
+          value={formData.especialidade}
+          readOnly
           placeholder="Especialidade"
-          value={especialidade}
-          onChange={(e) => setEspecialidade(e.target.value)}
           style={{
             width: "50%",
             height: "40px",
@@ -92,13 +107,34 @@ export default function AgendarConsulta() {
             border: "1px solid #ccc",
             outline: "none",
           }}
-          required
         />
+
+        <select
+          name="tipo"
+          value={formData.tipo}
+          onChange={handleChange}
+          required
+          style={{
+            width: "50%",
+            height: "40px",
+            fontSize: "18px",
+            padding: "10px",
+            borderRadius: "8px",
+            border: "1px solid #ccc",
+            outline: "none",
+          }}
+        >
+          <option value="Plano de saúde ou Particular">Plano de saúde ou Particular?</option>
+          <option value="Plano de saúde">Plano de saúde</option>
+          <option value="Particular">Particular</option>
+        </select>
+
         <input
-          type="text"
-          placeholder="Tipo de Consulta"
-          value={tipoConsulta}
-          onChange={(e) => setTipoConsulta(e.target.value)}
+          type="date"
+          name="data"
+          value={formData.data}
+          onChange={handleChange}
+          required
           style={{
             width: "50%",
             height: "40px",
@@ -108,23 +144,47 @@ export default function AgendarConsulta() {
             border: "1px solid #ccc",
             outline: "none",
           }}
-          required
         />
-        <button type="submit" style={{
-          width: "50%",
-          height: "40px",
-          fontSize: "18px",
-          borderRadius: "8px",
-          border: "none",
-          backgroundColor: "rgb(124, 22, 22)",
-          color: "white",
-          cursor: "pointer",
-        }}>
-          Agendar
+
+        <input
+          type="time"
+          name="horario"
+          value={formData.horario}
+          onChange={handleChange}
+          required
+          style={{
+            width: "50%",
+            height: "40px",
+            fontSize: "18px",
+            padding: "10px",
+            borderRadius: "8px",
+            border: "1px solid #ccc",
+            outline: "none",
+          }}
+        />
+
+        <button
+          type="submit"
+          style={{
+            width: "50%",
+            height: "40px",
+            fontSize: "18px",
+            backgroundColor: "rgb(124, 22, 22)",
+            color: "white",
+            borderRadius: "8px",
+            border: "none",
+            cursor: "pointer",
+          }}
+        >
+          Confirmar Consulta
         </button>
       </form>
-      {mensagem && <p style={{ textAlign: "center", marginTop: "20px", color: "green" }}>{mensagem}</p>}
+
+      {confirmado && (
+        <p style={{ textAlign: "center", marginTop: "20px", color: "green", fontWeight: "bold" }}>
+          Consulta cadastrada com sucesso!
+        </p>
+      )}
     </div>
   );
 }
-
