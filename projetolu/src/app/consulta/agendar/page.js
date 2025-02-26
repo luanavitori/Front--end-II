@@ -185,6 +185,7 @@ export default function CadastroConsulta() {
           Consulta cadastrada com sucesso!
         </p>
       )}
+      
     </div>
   );
 }
