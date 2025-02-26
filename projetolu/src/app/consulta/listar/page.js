@@ -1,12 +1,10 @@
 'use client';
 import { useState, useEffect } from "react";
-
 export default function ListarConsulta() {
   const [consultas, setConsultas] = useState([]);
   const [buscaPaciente, setBuscaPaciente] = useState("");
   const [buscaMedico, setBuscaMedico] = useState("");
   const [consultasFiltradas, setConsultasFiltradas] = useState([]);
-
   useEffect(() => {
     fetch("https://api-clinica-2a.onrender.com/consultas")
       .then((response) => response.json())
@@ -17,7 +15,6 @@ export default function ListarConsulta() {
       })
       .catch((error) => console.error("Erro ao buscar consultas:", error));
   }, []);
-
   useEffect(() => {
     const filtradas = consultas.filter(
       (consulta) =>
@@ -26,7 +23,6 @@ export default function ListarConsulta() {
     );
     setConsultasFiltradas(filtradas);
   }, [buscaPaciente, buscaMedico, consultas]);
-
   return (
     <div style={{ padding: "20px", maxWidth: "1200px", margin: "0 auto" }}>
       <h1 style={{ textAlign: "center", color: "rgb(124, 22, 22)" }}>Lista de Consultas</h1>
@@ -89,15 +85,14 @@ export default function ListarConsulta() {
     </div>
   );
 }
-
 const styles = {
   th: {
     padding: "12px",
     textAlign: "left",
-    borderBottom: "none", 
+    borderBottom: "2px solid rgb(124, 22, 22)", 
   },
   td: {
     padding: "10px",
-    borderBottom: "none", 
+    borderBottom: "1px solid #ccc", 
   },
 };
